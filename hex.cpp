@@ -1,3 +1,4 @@
+#include "sig.h"
 #include <iostream>
 #include <fstream>
 
@@ -16,11 +17,13 @@ int main(int argc, char *argv[]){
 		filebuf* pbuf = ifs.rdbuf();
 		size_t size = pbuf->pubseekoff (0,ifs.end,ifs.in);
 		char buffer[size];
-		cout << size << endl;
+		cout << "size: " << size << endl;
 		pbuf->pubseekpos (0,ifs.in);
 		pbuf->sgetn(buffer,100);
-    for(int i=0;i<size;i++){
+    /*for(int i=0;i<size;i++){
     	cout << hex << (int)(unsigned char)buffer[i] << " ";
-    }
+    }*/
+    init_signature_data();
+    check_signature((int*)(unsigned char*)buffer);
 	}
 }
