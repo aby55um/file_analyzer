@@ -32,6 +32,12 @@ int init_signature_data(){
   	sig_map["ZIP"][i] = zip[i];
   }
   sig_map["ZIP"][100] = len;
+
+  int elf[4] = {0x7f,0x45,0x4c,0x46};
+  for(int i=0;i<len;i++){
+  	sig_map["ELF"][i] = elf[i];
+  }
+  sig_map["ELF"][100] = len;
   
   return 0;
 }

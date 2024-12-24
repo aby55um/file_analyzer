@@ -23,7 +23,6 @@ int main(int argc, char *argv[]){
 		pbuf->sgetn(buffer,100);
     
     for(int i=0;i<100;i++){
-    	//header[i] = (unsigned char)buffer[i];
     	header[i] = buffer[i];
     }
 
