@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
 		size_t size = pbuf->pubseekoff (0,ifs.end,ifs.in);
 		char buffer[size];
 		pbuf->pubseekpos (0,ifs.in);
-		pbuf->sgetn(buffer,100);
+		pbuf->sgetn(buffer,size);
     
     for(int i=0;i<100;i++){
     	header[i] = buffer[i];
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
     file_type = check_signature(header);
     cout << "File format: " << file_type << endl;
 
-    file_details = file_analysis(file_type);
-    cout << file_details << endl;
+    file_details = file_analysis(file_type, buffer, size);
+    //cout << file_details << endl;
 	}
 }
