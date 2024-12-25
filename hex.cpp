@@ -1,4 +1,5 @@
 #include "sig.h"
+#include "analyze.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,6 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
   string file_type;
+  string file_details;
   char header[100];
 
 	if(argc!=2){
@@ -29,5 +31,8 @@ int main(int argc, char *argv[]){
     init_signature_data();
     file_type = check_signature(header);
     cout << "File format: " << file_type << endl;
+
+    file_details = file_analysis(file_type);
+    cout << file_details << endl;
 	}
 }
