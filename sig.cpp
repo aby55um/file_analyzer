@@ -38,6 +38,13 @@ int init_signature_data(){
   	sig_map["ELF"][i] = elf[i];
   }
   sig_map["ELF"][100] = len;
+
+  len = 3;
+  int mp3[3] = {0x49,0x44,0x33};
+  for(int i=0;i<len;i++){
+  	sig_map["MP3"][i] = mp3[i];
+  }
+  sig_map["MP3"][100] = len;
   
   return 0;
 }
