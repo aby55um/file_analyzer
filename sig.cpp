@@ -45,6 +45,13 @@ int init_signature_data(){
   	sig_map["MP3"][i] = mp3[i];
   }
   sig_map["MP3"][100] = len;
+
+  len = 5;
+  int iso[5] = {0x43,0x44,0x30,0x30,0x31};
+  for(int i=0;i<len;i++){
+  	sig_map["ISO"][i] = iso[i];
+  }
+  sig_map["ISO"][100] = len;
   
   return 0;
 }

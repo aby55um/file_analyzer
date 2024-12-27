@@ -24,6 +24,8 @@ int main(int argc, char *argv[]){
 		pbuf->pubseekpos (0,ifs.in);
 		pbuf->sgetn(buffer,size);
     
+    int n=100;
+    if(size < 100){ n = size; }
     for(int i=0;i<100;i++){
     	header[i] = buffer[i];
     }
