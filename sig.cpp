@@ -55,5 +55,3 @@ int init_signature_data(){
   
   return 0;
 }
-
-

@@ -20,6 +20,7 @@ int main(int argc, char *argv[]){
 		
 		filebuf* pbuf = ifs.rdbuf();
 		size_t size = pbuf->pubseekoff (0,ifs.end,ifs.in);
+		if (size > 1000000){size = 1000000;}
 		char buffer[size];
 		pbuf->pubseekpos (0,ifs.in);
 		pbuf->sgetn(buffer,size);
