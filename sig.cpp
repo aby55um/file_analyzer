@@ -7,13 +7,31 @@ using namespace std;
 map<string,int[101]> sig_map;
 
 //string check_signature(unsigned char* sig){
-string check_signature(char sig[100]){	
+string check_signature(char sig_c[100]){
+  unsigned char sig[100];
+  for(int i=0;i<100;i++){
+  	sig[i]=(unsigned char)sig_c[i];
+  }
+  int found = 0;	
   for(auto pair : sig_map){
+  	//cout << pair.second[100] << endl;
   	for(int i=0;i<pair.second[100];i++){
-  		if((int)sig[i]!=pair.second[i]){
+  		//cout << pair.second[i] << "    " << (int)sig[i] << endl;
+  		//cout << pair.first << endl;
+  		/*if((int)sig[i]!=pair.second[i]){
+  			//cout << "break" << endl;
+  			break;
+  		}*/
+  		if((int)sig[i]==pair.second[i]){
+  			found+=1;
+  			if(found == pair.second[100]){
+  				return pair.first;
+  			}
+  		}
+  		else {
+  			found = 0;
   			break;
   		}
-  		return pair.first;
   	}
   }
   return "No file signature found";
@@ -52,6 +70,14 @@ int init_signature_data(){
   	sig_map["ISO"][i] = iso[i];
   }
   sig_map["ISO"][100] = len;
+
+  len = 8;
+  int png[8] = {0x89,0x50,0x4e,0x47,0xd,0xa,0x1a,0xa};
+  for(int i=0;i<len;i++){
+  	sig_map["PNG"][i] = png[i];
+  	//cout << hex << sig_map["PNG"][i] << endl;
+  }
+  sig_map["PNG"][100] = len;
   
   return 0;
 }
