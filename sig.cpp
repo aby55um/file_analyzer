@@ -78,6 +78,13 @@ int init_signature_data(){
   	//cout << hex << sig_map["PNG"][i] << endl;
   }
   sig_map["PNG"][100] = len;
+
+  len = 1;
+  int gpg[1] = {0x99};
+  for(int i=0;i<len;i++){
+  	sig_map["GPG"][i] = gpg[i];
+  }
+  sig_map["GPG"][100] = len;
   
   return 0;
 }
