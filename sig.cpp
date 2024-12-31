@@ -85,6 +85,13 @@ int init_signature_data(){
   	sig_map["GPG"][i] = gpg[i];
   }
   sig_map["GPG"][100] = len;
+
+  len = 2;
+  int jpg[2] = {0xff,0xd8};
+  for(int i=0;i<len;i++){
+  	sig_map["JPG"][i] = jpg[i];
+  }
+  sig_map["JPG"][100] = len;
   
   return 0;
 }
