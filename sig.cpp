@@ -100,5 +100,12 @@ int init_signature_data(){
   }
   sig_map["DEB"][100] = 22;
 
+  len = 3;
+  int gz[3] = {0x1f,0x8b,0x8};
+  for(int i=0;i<len;i++){
+  	sig_map["GZ"][i] = gz[i];
+  }
+  sig_map["GZ"][100] = len;
+
   return 0;
 }
