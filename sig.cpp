@@ -107,5 +107,12 @@ int init_signature_data(){
   }
   sig_map["GZ"][100] = len;
 
+  len = 7;
+  int rar_old[7] = {0x52,0x61,0x72,0x21,0x1a,0x7,0x0};
+  for(int i=0;i<len;i++){
+  	sig_map["OLDER RAR"][i] = rar_old[i];
+  }
+  sig_map["OLDER RAR"][100] = len;
+
   return 0;
 }
