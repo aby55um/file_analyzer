@@ -121,5 +121,12 @@ int init_signature_data(){
   }
   sig_map["RAR"][100] = len;
 
+  len = 2;
+  int bmp[2] = {0x42,0x4d};
+  for(int i=0;i<len;i++){
+  	sig_map["BMP"][i] = bmp[i];
+  }
+  sig_map["BMP"][100] = len;
+
   return 0;
 }
