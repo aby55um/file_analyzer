@@ -128,5 +128,12 @@ int init_signature_data(){
   }
   sig_map["BMP"][100] = len;
 
+  len = 8;
+  int dalvik[8] = {0x64,0x65,0x78,0xa,0x30,0x33,0x35,0x0};
+  for(int i=0;i<len;i++){
+  	sig_map["DALVIK 35"][i] = dalvik[i];
+  }
+  sig_map["DALVIK 35"][100] = len;
+  
   return 0;
 }
