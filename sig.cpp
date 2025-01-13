@@ -135,5 +135,12 @@ int init_signature_data(){
   }
   sig_map["DALVIK 35"][100] = len;
   
+  len = 4;
+  int tcpdump[4] = {0xa1,0xb2,0xc3,0xd4};
+  for(int i=0;i<len;i++){
+  	sig_map["TCPDUMP"][i] = tcpdump[i];
+  }
+  sig_map["TCPDUMP"][100] = len;
+
   return 0;
 }
