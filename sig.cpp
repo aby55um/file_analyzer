@@ -142,6 +142,8 @@ int init_signature_data(){
   }
   sig_map["TCPDUMP"][100] = len;
 
+  // This has not been tested yet
+  // Todo: test it
   len = 4;
   int ms_sql_2000[4] = {0x01, 0x0f, 0x00, 0x00};
   for(int i=0;i<len;i++){
