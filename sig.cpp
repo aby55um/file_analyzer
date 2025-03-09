@@ -151,5 +151,12 @@ int init_signature_data(){
   }
   sig_map["MS_SQL_2000"][100] = len;
 
+  len = 4;
+  int windows_nt_registry_hive[4] = {0x72, 0x65, 0x67, 0x66};
+  for(int i=0;i<len;i++){
+    sig_map["WINDOWS NT REGISTRY HIVE"][i] = windows_nt_registry_hive[i];
+  }
+  sig_map["WINDOWS NT REGISTRY HIVE"][100] = len;
+
   return 0;
 }
